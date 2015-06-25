@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd"
+	default-lazy-init="false">
+	
+	<context:component-scan base-package="com.nukg" />
+
+     <context:property-placeholder 
+		location="classpath:spring-data-mongo.properties"
+		ignore-unresolvable="true" />
+		
+	<bean id="productDao" class="com.nukg.dao.ProductDao"/>
+	<bean id="inventoryDao" class="com.nukg.dao.InventoryDao"/>
+	<bean id="userDao" class="com.nukg.dao.UserDao"/>
+	
+  
+</beans>
